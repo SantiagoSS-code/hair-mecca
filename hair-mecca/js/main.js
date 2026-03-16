@@ -50,11 +50,11 @@
     handle.addEventListener('mousedown', e => { dragging = true; e.preventDefault(); });
     document.addEventListener('mouseup', () => { dragging = false; });
     document.addEventListener('mousemove', e => { if (dragging) setPosition(e.clientX); });
-    handle.addEventListener('touchstart', () => { dragging = true; }, { passive: true });
+    handle.addEventListener('touchstart', e => { dragging = true; e.preventDefault(); }, { passive: false });
     document.addEventListener('touchend', () => { dragging = false; });
     document.addEventListener('touchmove', e => {
-      if (dragging) setPosition(e.touches[0].clientX);
-    }, { passive: true });
+      if (dragging) { e.preventDefault(); setPosition(e.touches[0].clientX); }
+    }, { passive: false });
   }
 
   initBASlider('baContainer', 'baBefore', 'baHandle');
