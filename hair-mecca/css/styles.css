@@ -661,6 +661,12 @@
     .about-img { height: 360px; }
 
     .service-cards { grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 40px; }
+    /* scroll-driven expansion — fast transition so it tracks scroll */
+    .service-card-video-wrap video,
+    .service-card-video-wrap img { transition: height 0.12s ease; }
+    /* disable hover height on touch (scroll handles it instead) */
+    .service-card:hover .service-card-video-wrap video,
+    .service-card:hover .service-card-video-wrap img { height: inherit; }
     .service-menu { padding-top: 72px; padding-bottom: 72px; }
     .menu-sticky { position: relative; top: 0; height: 300px; }
 
@@ -692,7 +698,7 @@
 
     .service-cards { grid-template-columns: 1fr; }
     .service-card:hover .service-card-video-wrap video,
-    .service-card:hover .service-card-video-wrap img { height: 210px; }
+    .service-card:hover .service-card-video-wrap img { height: inherit; }
 
     .photo-grid { grid-template-columns: 1fr; }
     .ba-duo-wrap { height: 260px; }

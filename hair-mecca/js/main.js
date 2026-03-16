@@ -74,6 +74,50 @@
     });
   });
 
+  // ─── MOBILE: scroll-driven service card video expansion ───
+  function updateMobileServiceCards() {
+    if (window.innerWidth > 900) return;
+    const cards = document.querySelectorAll('.service-card');
+    const vh = window.innerHeight;
+    // On single-column (≤540) expand more; on 2-col tablet expand less
+    const maxH = window.innerWidth <= 540 ? Math.round(vh * 0.62) : Math.round(vh * 0.48);
+    const minH = 210;
+
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      const cardCenterY = rect.top + rect.height / 2;
+      const screenCenterY = vh / 2;
+
+      // 0 = card centered in screen, 1 = one full vh away
+      const dist = Math.abs(cardCenterY - screenCenterY) / vh;
+      // 1 when centered, 0 when far
+      const raw = Math.max(0, 1 - dist * 1.6);
+      // ease-in-out
+      const eased = raw < 0.5 ? 2 * raw * raw : 1 - Math.pow(-2 * raw + 2, 2) / 2;
+
+      const height = Math.round(minH + (maxH - minH) * eased);
+      const media = card.querySelector('.service-card-video-wrap video, .service-card-video-wrap img');
+      if (media) media.style.height = height + 'px';
+    });
+  }
+
+  function resetDesktopCards() {
+    document.querySelectorAll('.service-card video, .service-card img').forEach(el => {
+      el.style.height = '';
+    });
+  }
+
+  window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 900) updateMobileServiceCards();
+  }, { passive: true });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) resetDesktopCards();
+    else updateMobileServiceCards();
+  }, { passive: true });
+
+  updateMobileServiceCards(); // run on load
+
   // ─── SCROLL REVEAL ───
   // Only fire once per element (first time it enters the viewport)
   const revealObserver = new IntersectionObserver((entries) => {
