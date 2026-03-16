@@ -10,29 +10,56 @@
   updateNav(); // run on load
   window.addEventListener('scroll', updateNav, { passive: true });
 
-  // Before/After slider
-  const container = document.getElementById('baContainer');
-  const before = document.getElementById('baBefore');
-  const handle = document.getElementById('baHandle');
-  let dragging = false;
+  // ─── HAMBURGER MENU ───
+  const hamburger = document.querySelector('.nav-hamburger');
+  const navLinksList = document.querySelector('.nav-links');
 
-  function setPosition(x) {
-    const rect = container.getBoundingClientRect();
-    let pct = ((x - rect.left) / rect.width) * 100;
-    pct = Math.max(5, Math.min(95, pct));
-    before.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
-    handle.style.left = pct + '%';
+  hamburger.addEventListener('click', () => {
+    const isOpen = hamburger.classList.toggle('is-open');
+    navLinksList.classList.toggle('is-open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  // Close menu when a nav link is clicked
+  navLinksList.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('is-open');
+      navLinksList.classList.remove('is-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // ─── Before/After slider (reusable) ───
+  function initBASlider(containerId, beforeId, handleId) {
+    const container = document.getElementById(containerId);
+    const before = document.getElementById(beforeId);
+    const handle = document.getElementById(handleId);
+    if (!container || !before || !handle) return;
+    let dragging = false;
+
+    function setPosition(x) {
+      const rect = container.getBoundingClientRect();
+      let pct = ((x - rect.left) / rect.width) * 100;
+      pct = Math.max(5, Math.min(95, pct));
+      before.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+      handle.style.left = pct + '%';
+    }
+
+    handle.addEventListener('mousedown', e => { dragging = true; e.preventDefault(); });
+    document.addEventListener('mouseup', () => { dragging = false; });
+    document.addEventListener('mousemove', e => { if (dragging) setPosition(e.clientX); });
+    handle.addEventListener('touchstart', () => { dragging = true; }, { passive: true });
+    document.addEventListener('touchend', () => { dragging = false; });
+    document.addEventListener('touchmove', e => {
+      if (dragging) setPosition(e.touches[0].clientX);
+    }, { passive: true });
   }
 
-  handle.addEventListener('mousedown', e => { dragging = true; e.preventDefault(); });
-  document.addEventListener('mouseup', () => dragging = false);
-  document.addEventListener('mousemove', e => { if (dragging) setPosition(e.clientX); });
-
-  handle.addEventListener('touchstart', e => { dragging = true; }, { passive: true });
-  document.addEventListener('touchend', () => dragging = false);
-  document.addEventListener('touchmove', e => {
-    if (dragging) setPosition(e.touches[0].clientX);
-  }, { passive: true });
+  initBASlider('baContainer', 'baBefore', 'baHandle');
+  initBASlider('baFaceContainer', 'baFaceBefore', 'baFaceHandle');
+  initBASlider('baHairContainer', 'baHairBefore', 'baHairHandle');
 
   // Smooth nav highlight
   const navLinks = document.querySelectorAll('.nav-links a');

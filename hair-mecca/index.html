@@ -6,27 +6,36 @@
 <title>Hair Mecca – Elevate Your Style</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/styles.css" />
+<link rel="icon" type="image/png" href="assets/images/logo.png" />
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
-    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4L20 10H26L21.5 14.5L23.5 21L16 17L8.5 21L10.5 14.5L6 10H12L16 4Z" fill="#C9972B"/>
-    </svg>
-    Hair Mecca
+    <img src="assets/images/logo.png" alt="Hair Mecca" class="nav-logo-img" />
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li class="nav-mobile-cta-item">
+      <a href="https://wa.me/233202809178" target="_blank" class="nav-mobile-cta-link">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.547 4.085 1.504 5.808L0 24l6.388-1.536A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.586-.5-5.07-1.37l-.36-.214-3.8.913.957-3.713-.234-.38A9.965 9.965 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Book via WhatsApp
+      </a>
+    </li>
   </ul>
   <a href="https://wa.me/233202809178" class="nav-cta" target="_blank">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.547 4.085 1.504 5.808L0 24l6.388-1.536A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.586-.5-5.07-1.37l-.36-.214-3.8.913.957-3.713-.234-.38A9.965 9.965 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
     Book via WhatsApp
   </a>
+  <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -79,21 +88,33 @@
   </div>
   <div class="service-cards reveal-stagger">
     <div class="service-card">
-      <img src="assets/images/img-02.jpg" alt="Wig Styling" />
+      <div class="service-card-video-wrap">
+        <video autoplay muted loop playsinline>
+          <source src="assets/videos/hecca-hair-video-2.mp4" type="video/mp4" />
+        </video>
+      </div>
       <div class="service-card-label">
         <h3>Wig Styling</h3>
         <p>Customization &amp; Installs</p>
       </div>
     </div>
     <div class="service-card">
-      <img src="assets/images/img-03.jpg" alt="Natural Hair" />
+      <div class="service-card-video-wrap">
+        <video autoplay muted loop playsinline>
+          <source src="assets/videos/hecca-hair-video-1.mp4" type="video/mp4" />
+        </video>
+      </div>
       <div class="service-card-label">
         <h3>Natural Hair</h3>
         <p>Silk Press &amp; Treatments</p>
       </div>
     </div>
     <div class="service-card">
-      <img src="assets/images/img-04.jpg" alt="Beauty Bar" />
+      <div class="service-card-video-wrap">
+        <video autoplay muted loop playsinline>
+          <source src="assets/videos/hecca-hair-video-3.mp4" type="video/mp4" />
+        </video>
+      </div>
       <div class="service-card-label">
         <h3>Beauty Bar</h3>
         <p>Nails &amp; Pedicure</p>
@@ -107,7 +128,9 @@
   <div class="menu-inner">
     <div class="menu-sticky-col">
     <div class="menu-sticky reveal reveal--left">
-      <img src="assets/images/img-02.jpg" alt="The Collection" />
+      <video autoplay muted loop playsinline>
+        <source src="assets/videos/hecca-hair-video-4.mov" type="video/mp4" />
+      </video>
       <div class="menu-sticky-text">
         <h3>The Collection</h3>
         <p>Our curated menu of premium services designed to maintain the health and beauty of your hair and nails.</p>
@@ -193,40 +216,56 @@
   <div class="eyebrow reveal">Our Work</div>
   <h2 class="section-title reveal">Gallery &amp; Wig Revamps</h2>
 
-  <div class="before-after-wrap reveal--scale reveal" id="baContainer">
-    <div class="ba-after">
-      <img src="assets/images/model_skin_1080x720_2.png" alt="After" />
-      <div class="ba-label right">AFTER REVAMP</div>
-    </div>
-    <div class="ba-before" id="baBefore">
-      <img src="assets/images/model_skin_1080x720_1.png" alt="Before" />
-      <div class="ba-label left">BEFORE</div>
-    </div>
-    <div class="ba-handle" id="baHandle">
-      <div class="ba-handle-btn">
-        <span class="arr-left"></span>
-        <span class="arr-right"></span>
-      </div>
-    </div>
-  </div>
-  <p class="ba-caption">Wig Revamp Service: Drag to see the transformation</p>
 
-  <!-- Photo grid -->
+
+  <!-- Photo grid – 3 reordered items -->
   <div class="photo-grid reveal-stagger" style="margin-top:72px;">
     <div class="photo-grid-item">
-      <img src="assets/images/img-06.jpg" alt="Salon" />
+      <img src="assets/images/limpieza-facial.jpg" alt="Facial Treatment" />
     </div>
     <div class="photo-grid-item">
-      <img src="assets/images/img-03.jpg" alt="Natural hair" />
+      <img src="assets/images/alisado.jpg" alt="Hair Transformation" style="object-position: center center;" />
     </div>
     <div class="photo-grid-item">
-      <img src="assets/images/limpieza-facial.jpg" alt="Limpieza facial" />
+      <img src="assets/images/manicura.jpg" alt="Nails" />
     </div>
-    <div class="photo-grid-item">
-      <img src="assets/images/manicura.jpg" alt="Manicura" />
+  </div>
+
+  <!-- Before / After Duo -->
+  <div class="ba-duo reveal" style="margin-top:48px;">
+    <!-- Left: Face interactive slider -->
+    <div class="ba-duo-panel">
+      <div class="ba-duo-wrap" id="baFaceContainer">
+        <div class="ba-duo-after">
+          <img src="assets/images/model_skin_1080x720_2.png" alt="Face After" />
+          <span class="ba-tag ba-tag--right">AFTER</span>
+        </div>
+        <div class="ba-duo-before" id="baFaceBefore">
+          <img src="assets/images/model_skin_1080x720_1.png" alt="Face Before" />
+          <span class="ba-tag ba-tag--left">BEFORE</span>
+        </div>
+        <div class="ba-duo-handle" id="baFaceHandle">
+          <div class="ba-handle-btn"><span class="arr-left"></span><span class="arr-right"></span></div>
+        </div>
+      </div>
+      <p class="ba-duo-caption">Wig Revamp — Drag to compare</p>
     </div>
-    <div class="photo-grid-item">
-      <img src="assets/images/alisado.jpg" alt="Alisado" />
+    <!-- Right: Hair interactive slider -->
+    <div class="ba-duo-panel">
+      <div class="ba-duo-wrap" id="baHairContainer">
+        <div class="ba-duo-after">
+          <img src="assets/images/hair-after.jpeg" alt="Hair After" />
+          <span class="ba-tag ba-tag--right">AFTER</span>
+        </div>
+        <div class="ba-duo-before" id="baHairBefore">
+          <img src="assets/images/hair-before.jpeg" alt="Hair Before" />
+          <span class="ba-tag ba-tag--left">BEFORE</span>
+        </div>
+        <div class="ba-duo-handle" id="baHairHandle">
+          <div class="ba-handle-btn"><span class="arr-left"></span><span class="arr-right"></span></div>
+        </div>
+      </div>
+      <p class="ba-duo-caption">Hair Transformation — Drag to compare</p>
     </div>
   </div>
 </section>
